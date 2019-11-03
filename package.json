@@ -1,0 +1,26 @@
+{
+  "name": "spiseriet-parser",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "scripts": {
+    "invoke": "serverless invoke local -f menu",
+    "deploy": "serverless deploy"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "serverless": "^1.56.1",
+    "source-map-support": "^0.5.16"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.34",
+    "@types/cheerio": "^0.22.13",
+    "@types/node": "^12.12.5",
+    "serverless-webpack": "^5.3.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2"
+  },
+  "author": "Dennis Hedegaard <dennis@dhedegaard.dk>",
+  "license": "UNLICENSED"
+}
