@@ -16,7 +16,10 @@ const getBody = async () => {
 const parseDay = (doc: CheerioStatic, id: string) =>
   doc(`#${id}`)
     .text()
-    .trim();
+    .trim()
+    .split("\n")
+    .map(line => line.trim())
+    .join("\n");
 
 const parseDays = (body: string) => {
   const doc = load(body);
