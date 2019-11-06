@@ -32,12 +32,33 @@ const parseDays = (body: string) => {
   };
 };
 
+const getTodaysMenu = (days: ReturnType<typeof parseDays>) => {
+  const dayOfWeek = new Date().getDay();
+  switch (dayOfWeek) {
+    case 1:
+      return days.mon;
+    case 2:
+      return days.tue;
+    case 3:
+      return days.wed;
+    case 4:
+      return days.thu;
+    case 5:
+      return days.fri;
+    default:
+      return null;
+  }
+};
+
 export const menu: APIGatewayProxyHandler = async (_event, _context) => {
   const body = await getBody();
   const resp = parseDays(body);
   return {
     statusCode: 200,
-    body: JSON.stringify(resp),
+    body: JSON.stringify({
+      ...resp,
+      today: getTodaysMenu(resp)
+    }),
     headers: {
       "content-type": "application/json; charset=utf-8"
     }
